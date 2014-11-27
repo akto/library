@@ -10,7 +10,7 @@ var dice = {
 		this.userlog = this.user();
 		this.complog = this.comp();
 		this.total++;
-		/*
+		
 		if( this.userlog > this.complog ){
 			this.userScore++;
 			return 2;
@@ -21,8 +21,8 @@ var dice = {
 			this.tieScore++;
 			return 1;
 		}
-		*/
-		return this.userlog > this.complog ? 2 : ( this.complog > this.userlog ? 0 : 1 ); 
+		
+		//return this.userlog > this.complog ? 2 : ( this.complog > this.userlog ? 0 : 1 ); 
 	},
 	reset: function(){
 		this.total = 0;
@@ -31,3 +31,5 @@ var dice = {
 		this.tieScore = 0;
 	}
 };
+
+dice.result();
