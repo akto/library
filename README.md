@@ -10,4 +10,9 @@
 
 ### Javascript Codes
 
+- A js [dice code](https://github.com/akto/library/blob/master/js/dice.js)
+
+### Bookmarklets
+
+- My [bookmark library](https://github.com/akto/library/blob/master/bookmarklets.md)
 
