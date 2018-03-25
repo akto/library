@@ -11,6 +11,7 @@
 ### Javascript Codes
 
 - A js [dice code](https://github.com/akto/library/blob/master/js/dice.js)
+- Palindromes [`palindromes.js`](https://github.com/akto/library/blob/master/js/palindromes.js)
 
 ### Bookmarklets
 
