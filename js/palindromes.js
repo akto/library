@@ -5,17 +5,15 @@ Another code for palindromes: https://github.com/akto/algorithms-problem-solving
 
 */
 
-function palindromes( b ){
+function palindromes( num ){
     var arr = [];
-    while( b > 0 ){
-        let bstring = b.toString();
-        if( isPalindrome(bstring) ){ 
-          arr.push( b );
-          //console.log( b ); 
+    while( num > 0 ){
+        let numString = num.toString();
+        if( isPalindrome(numString) ){ 
+          arr.push( num ); 
         }
-        b--;
+        num--;
     }  
-    //console.log( arr );
     return arr;
 }
 
@@ -24,4 +22,4 @@ function isPalindrome(str){
 }
 
 console.clear();
-pal( 99*99 );
+palindromes( 9999 );
