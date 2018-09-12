@@ -1,7 +1,7 @@
 # My code library
 ## Google veya herhangi bir sitedeki Wikipedia linklerini Wikizero Linklerine Çeviren Bookmarklet en. 
 ## Wikipedia to Wikizero Link Modifier Bookmarklet
-- Aşağıdaki code'u yeni bir sık kullanılan linki oluşturup adres kısmına yapıştırın.
+- Aşağıdaki kodu; sık kullanılanlarda yeni bir link oluşturup adres kısmına yapıştırın.
 - `javascript:for(let i = 0 ; i < document.links.length; i++ ){ if( document.links[i].host.search('wikipedia') != -1 ){ let d = document.links[i].href.replace('wikipedia','0wikipedia'); document.links[i].href = d ; }; })`
 
 ## My code bits and pieces
