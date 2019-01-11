@@ -7,7 +7,7 @@
 
 - **Wikipedia Links to Wikizeroo**:
 
-```javascript:for(let i = 0 ; i < document.links.length; i++ ){ if( document.links[i].host.search('wikipedia') != -1 ){ let d = document.links[i].href.replace('wikipedia','0wikipedia'); document.links[i].href = d ; }; }```
+  ```javascript:for(let i = 0 ; i < document.links.length; i++ ){ if( document.links[i].host.search('wikipedia') != -1 ){ let d = document.links[i].href.replace('wikipedia','0wikipedia'); document.links[i].href = d ; }; }```
 
 - **Google Search Bookmarklet**: 
 
