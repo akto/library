@@ -1,4 +1,13 @@
 var dice = {
+	diceType : 6,
+	result : function(){return Math.floor( Math.random()*this.diceType + 1 )}
+}
+
+dice.result();
+
+
+/* IT'S FOR DICE GAME
+var dice = {
 	total : 0,
 	diceType : 6,
 	userScore : 0,
@@ -31,5 +40,4 @@ var dice = {
 		this.tieScore = 0;
 	}
 };
-
-dice.result();
+*/
