@@ -1,0 +1,66 @@
+/*
+*How to position content in the center with CSS
+
+-Placing content in the middle of the screen might be tricky. However, you can use position: absolute to override the dynamic placement and always position the content in the center.
+
+-It also works with every resolution across devices. However, always double-check if everything is positioned as you want it and the element looks natural even on smaller screens.
+*/
+
+section {
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+padding: 30px;
+}
+
+/*
+
+*How to fix an element’s position in CSS
+
+-Despite websites being dynamic, you might have some elements that you want to fix in certain positions. You can do so by using the position:absolute script.
+
+-However, use this method carefully and test it beforehand on every screen size and resolution so that it doesn’t break your site’s design.
+
+-Following this script with a specific position node assures that the element remains in the same position for all users.
+
+*/
+
+/* suppose you want to fix your sidebar’s position and size */
+.sidebar {
+position: absolute;
+top: 15px;
+right: 15px;
+width: 300px;
+height: 150px;
+}
+
+/*
+
+*How to fit images to the page in CSS
+
+-There are few things worse than your images spilling over your site visitor's screen. It can absolutely break your site’s design and discourage users.
+
+-However, with this simple hack, you can make sure that your images always fit the visitor’s screen regardless of the device they’re using.
+
+*/
+
+img {
+max-width: 100%;
+height: auto;
+}
+
+/*
+
+How to edit style on a single page in CSS
+If you want some of your page posts to look different from others, you can use the .single-post script to override the site’s CSS style. This ensures that you only tweak a single page and leave the other pages’ format as default.
+
+However, if you find yourself using this method a lot, it’s best to modify the overall CSS style to avoid writing unnecessary code lines.
+
+*/
+
+.single-post .entry-title {
+font-size: 24px;
+font-weight: 750;
+color: red;
+}
