@@ -1,3 +1,5 @@
+/* THOSE SNIPPETS ARE BASİC AND EASY CSS CODES */
+
 /*
 *How to position content in the center with CSS
 
@@ -48,19 +50,4 @@ height: 150px;
 img {
 max-width: 100%;
 height: auto;
-}
-
-/*
-
-How to edit style on a single page in CSS
-If you want some of your page posts to look different from others, you can use the .single-post script to override the site’s CSS style. This ensures that you only tweak a single page and leave the other pages’ format as default.
-
-However, if you find yourself using this method a lot, it’s best to modify the overall CSS style to avoid writing unnecessary code lines.
-
-*/
-
-.single-post .entry-title {
-font-size: 24px;
-font-weight: 750;
-color: red;
 }
