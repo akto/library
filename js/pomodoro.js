@@ -15,6 +15,10 @@ var Pomodoro = {
 	changeState : function(){
 		this.status == "session" ? this.status = "break" : this.status = "session";
 	},
+	playAudio : function(){
+		var audio = new Audio('https://proxy.notificationsounds.com/message-tones/to-the-point-568/download/file-sounds-1111-to-the-point.ogg');
+		audio.play();
+	},
 	start : function(){ 
 		this.stop();
 		this.setCountdown();
@@ -22,6 +26,7 @@ var Pomodoro = {
 			function(){
 			    console.log(Pomodoro.countdown);
 				if(Pomodoro.countdown == 0){
+					Pomodoro.playAudio();
 				    Pomodoro.changeState();
 				    Pomodoro.start();
 				}
