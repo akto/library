@@ -22,7 +22,8 @@ var Pomodoro = {
 			function(){
 			    console.log(Pomodoro.countdown);
 				if(Pomodoro.countdown == 0){
-				    Pomodoro.stop();
+				    Pomodoro.changeState();
+				    Pomodoro.start();
 				}
 				Pomodoro.countdown--;
 			} ,1000 );  
