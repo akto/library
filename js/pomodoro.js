@@ -39,6 +39,8 @@ var Pomodoro = {
 }
 
 //test
-
+Pomodoro.on = true;
 Pomodoro.setSessionTime(1);
 Pomodoro.start();
+
+//if add Pomodoro.on = false in progress it will pause.
