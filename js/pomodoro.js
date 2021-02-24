@@ -24,13 +24,15 @@ var Pomodoro = {
 		this.setCountdown();
 		this.intervalID = setInterval( 
 			function(){
-			    console.log(Pomodoro.countdown);
-				if(Pomodoro.countdown == 0){
-					Pomodoro.playAudio();
-				    Pomodoro.changeState();
-				    Pomodoro.start();
+				if( Pomodoro.on ){
+					console.log(Pomodoro.countdown);
+					if(Pomodoro.countdown == 0){
+						Pomodoro.playAudio();
+						Pomodoro.changeState();
+						Pomodoro.start();
+					}
+					Pomodoro.countdown--;
 				}
-				Pomodoro.countdown--;
 			} ,1000 );  
 	},
 	stop : function(){ clearInterval( this.intervalID ); }
