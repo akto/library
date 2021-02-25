@@ -35,7 +35,9 @@ var Pomodoro = {
 				}
 			} ,1000 );  
 	},
-	stop : function(){ clearInterval( this.intervalID ); }
+	stop : function(){ clearInterval( this.intervalID ); },
+	pause : function(){ this.on == false ? this.on = true: this.on = false; },
+	reset : function(){ this.pause(); this.stop(); this.setSessionTime(20); this.setBreakTime(5);}
 }
 
 //test
@@ -43,4 +45,11 @@ Pomodoro.on = true;
 Pomodoro.setSessionTime(1);
 Pomodoro.start();
 
-//if add Pomodoro.on = false in progress it will pause.
+
+/* 
+for resetting and starting over
+Pomodoro.reset();
+Pomodoro.pause(); --> for interchanging Pomodoro.on state.
+Pomodoro.start();
+Maybe I can interchange the state of pause() method inside start() method but not sure if it's good to do this in start() method
+*/
