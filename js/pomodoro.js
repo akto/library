@@ -37,7 +37,12 @@ var Pomodoro = {
 	},
 	stop : function(){ clearInterval( this.intervalID ); },
 	pause : function(){ this.on == false ? this.on = true: this.on = false; },
-	reset : function(){ this.pause(); this.stop(); this.setSessionTime(20); this.setBreakTime(5);}
+	reset : function(){
+		this.pause(); 
+		this.stop(); 
+		this.setSessionTime(20); 
+		this.setBreakTime(5);
+	}
 }
 
 //test
