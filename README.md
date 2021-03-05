@@ -17,6 +17,7 @@
 - A js library to keep a track of my mostly used code pieces [`mostly-used.js`](https://github.com/akto/library/blob/master/js/mostly-used.js)
 - A js [`dice code`](https://github.com/akto/library/blob/master/js/dice.js)
 - Palindromes [`palindromes.js`](https://github.com/akto/library/blob/master/js/palindromes.js)
+- Pomodoro [`pomodoro.js`](https://github.com/akto/library/blob/master/js/pomodoro.js)
 
 ### Bookmarklets
 
