@@ -1,9 +1,9 @@
 var dice = {
 	diceType : 6,
-	result : function(){return Math.floor( Math.random()*this.diceType + 1 )}
+	roll : function(){return Math.floor( Math.random()*this.diceType + 1 )}
 }
 
-dice.result();
+dice.roll();
 
 
 
