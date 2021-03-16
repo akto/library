@@ -51,7 +51,8 @@ function basic( i ){
 	console.log(i+'. Seconds');
 }
 Pomodoro.on = true;
-Pomodoro.setSessionTime(1);
+Pomodoro.setSessionTime(0.3);
+Pomodoro.setBreakTime(0.1);
 Pomodoro.start( basic );
 
 
