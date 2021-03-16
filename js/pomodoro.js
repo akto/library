@@ -19,21 +19,22 @@ var Pomodoro = {
 		var audio = new Audio('https://proxy.notificationsounds.com/message-tones/to-the-point-568/download/file-sounds-1111-to-the-point.ogg');
 		audio.play();
 	},
-	start : function(){ 
+	start : function( callback ){ 
 		this.stop();
 		this.setCountdown();
-		this.intervalID = setInterval( 
-			function(){
-				if( Pomodoro.on ){
-					console.log(Pomodoro.countdown);
-					if(Pomodoro.countdown == 0){
-						Pomodoro.playAudio();
-						Pomodoro.changeState();
-						Pomodoro.start();
-					}
-					Pomodoro.countdown--;
+		this.intervalID = setInterval( function(  ){
+			if( Pomodoro.on ){
+			//console.log(this.countdown);
+				if(Pomodoro.countdown == 0){
+					//callback( Pomodoro.countdown );
+					Pomodoro.playAudio();
+					Pomodoro.changeState();
+					Pomodoro.start( callback );
 				}
-			} ,1000 );  
+			    callback( Pomodoro.countdown );
+			    Pomodoro.countdown--;
+		    }
+		} ,1000 );  
 	},
 	stop : function(){ clearInterval( this.intervalID ); },
 	pause : function(){ this.on == false ? this.on = true: this.on = false; },
@@ -46,9 +47,12 @@ var Pomodoro = {
 }
 
 //test
+function basic( i ){
+	console.log(i+'. Seconds');
+}
 Pomodoro.on = true;
 Pomodoro.setSessionTime(1);
-Pomodoro.start();
+Pomodoro.start( basic );
 
 
 /* 
