@@ -45,15 +45,20 @@ var Pomodoro = {
 		this.setBreakTime(5);
 	}
 }
-
+function timeInHMS( counter ){
+	var h = Math.floor( counter / 3600 ),
+		m = Math.floor((counter % 3600) / 60),
+		s = Math.floor((counter % 3600) % 60);
+	return (( h < 0 ? '00' : ( h < 10  ? '0' + h : h))+':'+( m < 0 ? '00' : ( m < 10  ? '0' + m : m))+':'+( s < 0 ? '00' : ( s < 10  ? '0' + s : s)));
+}
 //test
-function basic( i ){
-	console.log(i+'. Seconds');
+function showTimer( i ){
+	console.log( timeInHMS( i ) );
 }
 Pomodoro.on = true;
 Pomodoro.setSessionTime(0.3);
 Pomodoro.setBreakTime(0.1);
-Pomodoro.start( basic );
+Pomodoro.start( showTimer );
 
 
 /* 
