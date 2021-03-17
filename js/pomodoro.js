@@ -45,10 +45,10 @@ var Pomodoro = {
 		this.setBreakTime(5);
 	}
 }
-function timeInHMS( counter ){
-	var h = Math.floor( counter / 3600 ),
-		m = Math.floor((counter % 3600) / 60),
-		s = Math.floor((counter % 3600) % 60);
+function timeInHMS( seconds ){
+	var h = Math.floor( seconds / 3600 ),
+		m = Math.floor((seconds % 3600) / 60),
+		s = Math.floor((seconds % 3600) % 60);
 	return (( h < 0 ? '00' : ( h < 10  ? '0' + h : h))+':'+( m < 0 ? '00' : ( m < 10  ? '0' + m : m))+':'+( s < 0 ? '00' : ( s < 10  ? '0' + s : s)));
 }
 //test
