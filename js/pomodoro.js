@@ -22,19 +22,21 @@ var Pomodoro = {
 	start : function( callback ){ 
 		this.stop();
 		this.setCountdown();
-		this.intervalID = setInterval( function(  ){
-			if( Pomodoro.on ){
-			//console.log(this.countdown);
-				if(Pomodoro.countdown == 0){
-					//callback( Pomodoro.countdown );
-					Pomodoro.playAudio();
-					Pomodoro.changeState();
-					Pomodoro.start( callback );
+		if(typeof(callback) === "function"){
+			this.intervalID = setInterval( function(  ){
+				if( Pomodoro.on ){
+				//console.log(this.countdown);
+					if(Pomodoro.countdown == 0){
+						//callback( Pomodoro.countdown );
+						Pomodoro.playAudio();
+						Pomodoro.changeState();
+						Pomodoro.start( callback );
+					}
+					callback( Pomodoro.countdown );
+					Pomodoro.countdown--;
 				}
-			    callback( Pomodoro.countdown );
-			    Pomodoro.countdown--;
-		    }
-		} ,1000 );  
+			} ,1000 );
+		}  
 	},
 	stop : function(){ clearInterval( this.intervalID ); },
 	pause : function(){ this.on == false ? this.on = true: this.on = false; },
