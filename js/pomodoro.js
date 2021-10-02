@@ -1,4 +1,4 @@
-var Pomodoro = {
+const POMODORO = {
 	intervalID : 0,
 	countdown : 0,
 	sessionTime : 1200, //Default Session Time
@@ -22,18 +22,21 @@ var Pomodoro = {
 	start : function( callback ){ 
 		this.stop();
 		this.setCountdown();
+		/*
+			Another Method to check if callback is a function is,
+			({}.toString.call(callback) === "[object Function]")
+			but this one is slower than typeof(callback) in Chrome. But in firefox, typeof is slower one.
+		*/ 
 		if(typeof(callback) === "function"){
 			this.intervalID = setInterval( function(  ){
-				if( Pomodoro.on ){
-				//console.log(this.countdown);
-					if(Pomodoro.countdown == 0){
-						//callback( Pomodoro.countdown );
-						Pomodoro.playAudio();
-						Pomodoro.changeState();
-						Pomodoro.start( callback );
+				if( POMODORO.on ){
+					if(POMODORO.countdown == 0){
+						POMODORO.playAudio();
+						POMODORO.changeState();
+						POMODORO.start( callback );
 					}
-					callback( Pomodoro.countdown );
-					Pomodoro.countdown--;
+					callback( POMODORO.countdown );
+					POMODORO.countdown--;
 				}
 			} ,1000 );
 		}  
@@ -41,10 +44,9 @@ var Pomodoro = {
 	stop : function(){ clearInterval( this.intervalID ); },
 	pause : function(){ this.on == false ? this.on = true: this.on = false; },
 	reset : function(){
-		this.pause(); 
 		this.stop(); 
-		this.setSessionTime(20); 
-		this.setBreakTime(5);
+		this.setSessionTime(this.sessionTime); 
+		this.setBreakTime(this.breakTime);
 	}
 }
 function timeInHMS( seconds ){
@@ -57,10 +59,10 @@ function timeInHMS( seconds ){
 function showTimer( i ){
 	console.log( timeInHMS( i ) );
 }
-Pomodoro.on = true;
-Pomodoro.setSessionTime(0.3);
-Pomodoro.setBreakTime(0.1);
-Pomodoro.start( showTimer );
+POMODORO.on = true;
+POMODORO.setSessionTime(0.3);
+POMODORO.setBreakTime(0.1);
+POMODORO.start( showTimer );
 
 
 /* 
