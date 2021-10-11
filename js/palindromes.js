@@ -10,7 +10,7 @@ function palindromes( num ){
     while( num > 0 ){
         let numString = num.toString();
         if( isPalindrome(numString) ){ 
-          arr.push( num ); 
+          arr.push( num );
         }
         num--;
     }  
@@ -18,8 +18,14 @@ function palindromes( num ){
 }
 
 function isPalindrome(str){
+  str = typeof(str) !== 'string' ? str = str.toString() : str; 
   return str === str.split('').reverse().join('');
 }
+
+let isP = str =>  {
+  str = typeof(str) !== 'string' ? str = str.toString() : str; 
+  return str === str.split('').reverse().join('');
+} 
 
 console.clear();
 palindromes( 9999 );
