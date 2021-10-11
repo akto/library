@@ -31,7 +31,8 @@ const POMODORO = {
 			this.intervalID = setInterval( function(  ){
 				if( POMODORO.on ){
 					if(POMODORO.countdown == 0){
-						POMODORO.playAudio();
+						//POMODORO.playAudio();
+						console.log("There will be a notification sound in here!");
 						POMODORO.changeState();
 						POMODORO.start( callback );
 					}
