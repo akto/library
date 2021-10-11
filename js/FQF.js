@@ -1,4 +1,4 @@
-/*
+-/*
 # I'll write a script to translate qwerty keyboard keys to F keyboard for mostly Turkish Citizins.
 # The following comparisons will be changed to two array for quick replacements.
 
