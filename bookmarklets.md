@@ -11,7 +11,7 @@
 
 - **Google Search Bookmarklet**: 
 
-  ```javascript:var q=document.getSelection();if(q==false){q=prompt('kelime gir');};iNewWin=window.open('');iNewWin.document.write('<script language=\'javascript\' type=\'text/javascript\'>location.href=\'http://www.google.com/#hl=en&q='+encodeURIComponent(q)+'\';</script>');```
+  ```javascript:var q=document.getSelection(),input=q.toString();if(input == false){ input = prompt("Enter Your Search Query:  ");}; if(input == null){ input='random number between 1 and 6'};window.open("https://www.google.com/search?q="+encodeURIComponent(input))```
 
 - **Bing Search Bookmarklet**: 
 
