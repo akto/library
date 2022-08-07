@@ -12,7 +12,7 @@ const POMODORO = {
 	setCountdown : function(){
 		this.countdown = this.status == "session" ? this.getSessionTime() : this.getBreakTime();
 	},
-	changesState : function(){
+	changeState : function(){
 		this.status == "session" ? this.status = "break" : this.status = "session";
 	},
 	playAudio : function(){
