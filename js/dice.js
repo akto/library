@@ -4,6 +4,3 @@ var dice = {
 }
 
 dice.roll();
-
-
-

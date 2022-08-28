@@ -10,15 +10,17 @@ function test( func,expected ){
   else if( expected == 'object' ){ result = typeof output == 'object' ? true : false; }
   else{ result = (output == expected); }
   console.log('---Start---');
-  console.time('---End---: ');
+  console.time('test');
   console.log( 'Output is: '+output + ' and Expected: ' + expected + ' so Result is: '+ result);
-  console.timeEnd('---End---: ');
+  console.timeEnd('test');
   
 }
 
 test.prototype.render = function( arr ){
   arr.map( function(e){
-    let renderFunc = e[0];
-    let renderExpected = e[1];
+    let renderFunc = e[0],
+        renderExpected = e[1],
+        result = renderFunc == renderExpected;
+    console.log( result );
   });
 }
