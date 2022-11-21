@@ -28,18 +28,20 @@ const POMODORO = {
 			but this one is slower than typeof(callback) in Chrome. But in firefox, typeof is slower one.
 		*/ 
 		if(typeof(callback) === "function"){
-			this.intervalID = setInterval( function(  ){
-				if( POMODORO.on ){
-					if(POMODORO.countdown == 0){
-						//POMODORO.playAudio();
-						console.log("There will be a notification sound in here!");
-						POMODORO.changeState();
-						POMODORO.start( callback );
+			if(!this.intervalID){
+				this.intervalID = setInterval( function(  ){
+					if( POMODORO.on ){
+						if(POMODORO.countdown == 0){
+							//POMODORO.playAudio();
+							console.log("There will be a notification sound in here!");
+							POMODORO.changeState();
+							POMODORO.start( callback );
+						}
+						callback( POMODORO.countdown );
+						POMODORO.countdown--;
 					}
-					callback( POMODORO.countdown );
-					POMODORO.countdown--;
-				}
-			} ,1000 );
+				} ,1000 );
+			}
 		}  
 	},
 	stop : function(){ clearInterval( this.intervalID ); },
