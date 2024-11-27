@@ -49,24 +49,16 @@ const pomodoro = {
     this.setCountdown(2);
     let counter = this.getCountdown();
     console.log(counter);
-      const newTimer = new Timer(() => {
-        this.formatTime(counter); // Replace with your desired callback function
-        counter--;
-      }, 1000);
-      newTimer.start();
-      if(!this.isPaused){
-        if( this.countdown == 0 ){
+          if( this.countdown == 0 ){
+            const newTimer = new Timer(() => {
+            this.formatTime(counter); // Replace with your desired callback function
+            counter--;
+          }, 1000);
+          newTimer.start();
           console.log("There will be notifications");
           this.toggleStatus();
-          newTimer.start();
+          //newTimer.start();
         }
-      }
   }
 }
-
-function formatTime(seconds){
-    let minutes = Math.floor(seconds / 60);
-    let secs = seconds % 60;
-    console.log((minutes < 10 ? '0' : '') + minutes + ':' + (secs < 10 ? '0' : '') + secs);
-  }
 pomodoro.start();
