@@ -43,7 +43,8 @@ const POMODORO = {
 		}  
 	},
 	stop : function(){ clearInterval( this.intervalID ); },
-	pause : function(){ this.on = !this.on; },
+	pause : function(){ this.on = false; },
+	resume : function(){ this.on = true; },
 	reset : function(){
 		this.stop(); 
 		this.setSessionTime(this.sessionTime); 
