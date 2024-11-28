@@ -32,7 +32,7 @@ const POMODORO = {
 						if(this.countdown == 0){
 							//POMODORO.playAudio();
 							console.log("There will be a notification sound in here!");
-							this.changeState();
+							this.toggleStatus();
 							this.start( callback );
 						}
 						callback( this.countdown );
