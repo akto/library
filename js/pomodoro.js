@@ -18,7 +18,7 @@ const POMODORO = {
 		audio.play();
 	},
 	start : function( callback ){ 
-		this.stop();
+		clearInterval(this.intervalID);
 		this.setCountdown();
 		/*
 			Another Method to check if callback is a function is,
@@ -42,7 +42,10 @@ const POMODORO = {
 			}
 		}  
 	},
-	stop : function(){ clearInterval( this.intervalID ); },
+	stop : function(){ 
+		clearInterval( this.intervalID );
+		this.status = "session";
+	},
 	pause : function(){ this.on = false; },
 	resume : function(){ this.on = true; },
 	reset : function(){
