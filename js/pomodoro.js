@@ -30,17 +30,17 @@ const POMODORO = {
 		if(typeof(callback) === "function"){
 			if(!this.intervalID){
 				this.intervalID = setInterval( function(  ){
-					if( POMODORO.on ){
-						if(POMODORO.countdown == 0){
+					if( this.on ){
+						if(this.countdown == 0){
 							//POMODORO.playAudio();
 							console.log("There will be a notification sound in here!");
-							POMODORO.changeState();
-							POMODORO.start( callback );
+							this.changeState();
+							this.start( callback );
 						}
-						callback( POMODORO.countdown );
-						POMODORO.countdown--;
+						callback( this.countdown );
+						this.countdown--;
 					}
-				} ,1000 );
+				}.bind(this) ,1000 );
 			}
 		}  
 	},
