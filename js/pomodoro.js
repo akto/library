@@ -12,9 +12,7 @@ const POMODORO = {
 	setCountdown : function(){
 		this.countdown = this.status == "session" ? this.getSessionTime() : this.getBreakTime();
 	},
-	changeState : function(){
-		this.status == "session" ? this.status = "break" : this.status = "session";
-	},
+	toggleStatus : function(){this.status = ({session:"breaking", breaking:"session"})[this.status]},
 	playAudio : function(){
 		var audio = new Audio('https://proxy.notificationsounds.com/message-tones/to-the-point-568/download/file-sounds-1111-to-the-point.ogg');
 		audio.play();
