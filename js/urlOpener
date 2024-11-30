@@ -6,7 +6,7 @@ const urlOpener = {
     openInSameTab : function(baseUrl, query){
         location.href = baseUrl + encodeURIComponent(query);
     },
-    messOpen : function( engineUrls, searchQuery ){
+    openSelectedEngines : function( engineUrls, searchQuery ){
         this.selectedEngines.map( (engineKey) => {
             this.openInNewTab( engineUrls[engineKey], searchQuery );
         });
@@ -149,4 +149,4 @@ const searchEngines = {
 
 // urlOpener.openInNewTab(searchEngines.google, "JavaScript tutorials");
 // urlOpener.selectedEngines.push("oxford");
-// urlOpener.messOpen( searchEngines, "Verb" );
+// urlOpener.openSelectedEngines( searchEngines, "Verb" );
