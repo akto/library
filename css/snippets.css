@@ -51,3 +51,21 @@ img {
 max-width: 100%;
 height: auto;
 }
+
+
+/* A simple animation with keyframes. Keyframes can be used for timing of styles. */
+.p {
+	margin: auto;
+	font-size:10vw;
+	color: #DFFF00;
+	animation: pulse 1s ease infinite alternate;
+}
+@keyframes pulse{
+	0%{
+		color:#00ffae;
+		text-shadow: 0 0 20px #DFFF00;
+	}
+	100%{
+		color:#DFFF00;
+	}
+}
