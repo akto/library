@@ -1,0 +1,152 @@
+const urlOpener = {
+    selectedEngines : [],
+    openInNewTab : function(baseUrl, query){
+        window.open(baseUrl + encodeURIComponent(query));
+    },
+    openInSameTab : function(baseUrl, query){
+        location.href = baseUrl + encodeURIComponent(query);
+    },
+    messOpen : function( engineUrls, searchQuery ){
+        this.selectedEngines.map( (engineKey) => {
+            this.openInNewTab( engineUrls[engineKey], searchQuery );
+        });
+    }
+}
+
+const searchEngines = {
+    // General Search Engines
+    google: "https://www.google.com/search?q=",
+    bing: "https://www.bing.com/search?q=",
+    yahoo: "https://search.yahoo.com/search?p=",
+    duckduckgo: "https://duckduckgo.com/?q=",
+    baidu: "https://www.baidu.com/s?wd=",
+    yandex: "https://yandex.com/search/?text=",
+
+    // Dictionaries
+    merriamWebster: "https://www.merriam-webster.com/dictionary/",
+    dictionaryCom: "https://www.dictionary.com/browse/",
+    oxford: "https://www.oxfordlearnersdictionaries.com/definition/english/",
+    cambridge: "https://dictionary.cambridge.org/dictionary/english/",
+    collins: "https://www.collinsdictionary.com/dictionary/english/",
+
+    // Video Sites
+    youtube: "https://www.youtube.com/results?search_query=",
+    vimeo: "https://vimeo.com/search?q=",
+    dailymotion: "https://www.dailymotion.com/search/",
+
+    // Image Sites
+    googleImages: "https://www.google.com/images?q=",
+    bingImages: "https://www.bing.com/images/search?q=",
+    flickr: "https://www.flickr.com/search/?text=",
+    pixabay: "https://pixabay.com/images/search/",
+    unsplash: "https://unsplash.com/s/photos/",
+
+    // Encyclopedias and Knowledge Bases
+    wikipedia: "https://en.wikipedia.org/wiki/",
+    britannica: "https://www.britannica.com/search?query=",
+    wiktionary: "https://en.wiktionary.org/wiki/",
+
+    // Social Media
+    twitter: "https://twitter.com/search?q=",
+    facebook: "https://www.facebook.com/search/top/?q=",
+    instagram: "https://www.instagram.com/explore/tags/",
+
+    // Shopping Sites
+    amazon: "https://www.amazon.com/s?k=",
+    ebay: "https://www.ebay.com/sch/i.html?_nkw=",
+    aliexpress: "https://www.aliexpress.com/wholesale?SearchText=",
+
+    // News Sites
+    googleNews: "https://news.google.com/search?q=",
+    bingNews: "https://www.bing.com/news/search?q=",
+    yahooNews: "https://news.search.yahoo.com/search?p=",
+
+    // Job Search Sites
+    linkedinJobs: "https://www.linkedin.com/jobs/search/?keywords=",
+    indeed: "https://www.indeed.com/jobs?q=",
+    glassdoor: "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=",
+
+    // Code Repositories
+    github: "https://github.com/search?q=",
+    gitlab: "https://gitlab.com/search?search=",
+    bitbucket: "https://bitbucket.org/repo/all?name=",
+
+    // Academic Resources
+    googleScholar: "https://scholar.google.com/scholar?q=",
+    researchGate: "https://www.researchgate.net/search/publication?q=",
+    arxiv: "https://arxiv.org/search/?query=",
+
+    // Additional Useful Sites
+    stackOverflow: "https://stackoverflow.com/search?q=",
+    medium: "https://medium.com/search?q=",
+    reddit: "https://www.reddit.com/search/?q=",
+    quora: "https://www.quora.com/search?q=",
+
+    // Music Platforms
+    spotify: "https://open.spotify.com/search/",
+    soundcloud: "https://soundcloud.com/search?q=",
+
+    // Maps
+    googleMaps: "https://www.google.com/maps/search/",
+    bingMaps: "https://www.bing.com/maps?q=",
+
+    // Translation Services
+    googleTranslate: "https://translate.google.com/?sl=auto&tl=en&text=",
+    deepl: "https://www.deepl.com/translator#auto/en/",
+
+    // Recipe Sites
+    allrecipes: "https://www.allrecipes.com/search/results/?wt=",
+    foodNetwork: "https://www.foodnetwork.com/search/",
+
+    // Finance
+    yahooFinance: "https://finance.yahoo.com/quote/",
+    googleFinance: "https://www.google.com/finance/quote/",
+
+    // Health Information
+    webMD: "https://www.webmd.com/search/search_results/default.aspx?query=",
+    mayoClinic: "https://www.mayoclinic.org/search/search-results?q=",
+
+    // Government Resources
+    usaGov: "https://search.usa.gov/search?query=",
+    govUK: "https://www.gov.uk/search?q=",
+
+    // Open-Source Packages
+    npm: "https://www.npmjs.com/search?q=",
+    pypi: "https://pypi.org/search/?q=",
+
+    // Book Search
+    googleBooks: "https://www.google.com/search?tbm=bks&q=",
+    goodreads: "https://www.goodreads.com/search?q=",
+    projectGutenberg: "https://www.gutenberg.org/ebooks/search/?query=",
+
+    // Travel
+    tripAdvisor: "https://www.tripadvisor.com/Search?q=",
+    expedia: "https://www.expedia.com/Hotel-Search?destination=",
+
+    // Weather
+    weather: "https://www.weather.com/search/enhancedlocalsearch?where=",
+
+    // Legal Information
+    justia: "https://law.justia.com/search?q=",
+    cornellLaw: "https://www.law.cornell.edu/search/site/",
+
+    // Sports
+    espn: "https://www.espn.com/search/results?q=",
+    nfl: "https://www.nfl.com/search/?query=",
+
+    // Programming Documentation
+    mdnWebDocs: "https://developer.mozilla.org/en-US/search?q=",
+    pythonDocs: "https://docs.python.org/3/search.html?q=",
+    javaDocs: "https://docs.oracle.com/javase/8/docs/api/index.html?search=",
+
+    // Miscellaneous
+    urbanDictionary: "https://www.urbandictionary.com/define.php?term=",
+    imdb: "https://www.imdb.com/find?q=",
+    rottenTomatoes: "https://www.rottentomatoes.com/search?search=",
+    netflix: "https://www.netflix.com/search?q="
+}
+
+
+// urlOpener.openInNewTab(searchEngines.google, "JavaScript tutorials");
+// urlOpener.selectedEngines.push("oxford");
+// urlOpener.messOpen( searchEngines, "Verb" );
