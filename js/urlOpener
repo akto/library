@@ -1,14 +1,20 @@
 const urlOpener = {
     selectedEngines : [],
+    baseEngineUrls : {},
     openInNewTab : function(baseUrl, query){
         window.open(baseUrl + encodeURIComponent(query));
     },
     openInSameTab : function(baseUrl, query){
         location.href = baseUrl + encodeURIComponent(query);
     },
-    openSelectedEngines : function( engineUrls, searchQuery ){
+    pushSearchEngines : function( engineKeys ){
+        engineKeys.map( (engineKey) => {
+            this.baseEngineUrls[engineKey] != undefined ? this.selectedEngines.push(engineKey) : this.selectedEngines.push("google");
+        });
+    },
+    openSelectedEngines : function( searchQuery ){
         this.selectedEngines.map( (engineKey) => {
-            this.openInNewTab( engineUrls[engineKey], searchQuery );
+            this.openInNewTab( this.baseEngineUrls[engineKey], searchQuery );
         });
     }
 }
@@ -290,6 +296,11 @@ const searchEngines = {
     onedio: "https://onedio.com/ara?q="
 }
 
+//urlOpener.openInNewTab(searchEngines.googleBooks, "JavaScript tutorials");
+urlOpener.baseEngineUrls = searchEngines;
+urlOpener.pushSearchEngines(["oxford","Spotify"]); //Spotify undefined so search will open google search
+urlOpener.openSelectedEngines( "Verb" );
+urlOpener.openInNewTab(searchEngines.startPage, "pwa");
 
 // urlOpener.openInNewTab(searchEngines.google, "JavaScript tutorials");
 // urlOpener.selectedEngines.push("oxford");
