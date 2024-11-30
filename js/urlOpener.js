@@ -296,11 +296,14 @@ const searchEngines = {
     onedio: "https://onedio.com/ara?q="
 }
 
+//for searching selection from console.
+let selectedPhrase = document.getSelection(),
+    keyword = selectedPhrase.toString();
 //urlOpener.openInNewTab(searchEngines.googleBooks, "JavaScript tutorials");
 urlOpener.baseEngineUrls = searchEngines;
 urlOpener.pushSearchEngines(["oxford","Spotify"]); //Spotify undefined so search will open google search
 urlOpener.openSelectedEngines( "Verb" );
-urlOpener.openInNewTab(searchEngines.startPage, "pwa");
+urlOpener.openInNewTab(searchEngines.startPage, keyword);
 
 // urlOpener.openInNewTab(searchEngines.google, "JavaScript tutorials");
 // urlOpener.selectedEngines.push("oxford");
