@@ -113,3 +113,19 @@ function countPatternOccurrences(grid) {
 
     return count;
 }
+
+/* code to calculate diagonal numbers of a matrix */
+function diagonalDifference(arr){
+    let length = arr.length-1;
+    let leftSum = 0, 
+        rightSum = 0;
+    for(let i=0;i<=length;i++){
+        leftSum += arr[i][i];
+        rightSum += arr[i][length-i];
+        //console.log(i+" - "+ arr[i][i]);
+        //console.log(i+" - "+arr[i][length-1-i]);
+    }
+    return Math.abs(leftSum-rightSum);
+}
+const arr1 = [[11,2,4],[4,5,6],[10,8,-12]];
+diagonalDifference(arr1);
