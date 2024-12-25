@@ -2,6 +2,10 @@ function reverseWord( word ){
   return word.split("").reverse("").join("");
 }
 
+// Don't forget add compareNumbers function if you want a proper sort for numbers.
+const compareNumbers = (a,b) => a-b;
+//candles.sort(compareNumbers);
+
 function createGrid(input){
     const rows = input.trim().split("\n");
     const grids = rows.map(row => row.split(""));
